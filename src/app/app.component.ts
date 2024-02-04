@@ -10,7 +10,11 @@ const getUsers = async () => {
     }
     data.map((item: any) => {
       parent?.append(
-        el("div", { class: "bg-white p-4 rounded" }, item.firstname + " " + item.lastname)
+        el(
+          "div",
+          { class: "bg-white p-4 rounded" },
+          item.firstname + " " + item.lastname
+        )
       );
     });
   } catch (error) {
@@ -23,9 +27,6 @@ export const AppComponent = () => {
     "section",
     {
       class: "bg-blue-50 py-12",
-      events: {
-        onclick: getUsers,
-      },
     },
     el(
       "div",
@@ -38,8 +39,13 @@ export const AppComponent = () => {
           {},
           el(
             "button",
-            { class: "px-6 py-2 bg-blue text-light rounded" },
-            "Get Users"
+            {
+              class: "px-6 py-2 bg-blue text-light rounded",
+              events: {
+                onclick: getUsers,
+              },
+            },
+            "Get users"
           )
         ),
         el("div", {
